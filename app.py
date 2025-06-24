@@ -2,12 +2,12 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/detection/<string:alert_id>', methods=['POST'])
-def receber_alerta(alert_id):
-    print(f"[Alerta recebido] ID: {alert_id}")
-    dados = request.data.decode('utf-8')
-    print("Conteúdo recebido:\n", dados)
-    return "Alerta recebido com sucesso", 200
+@app.route("/detection/camera01", methods=["POST"])
+def receber_alerta():
+    print("📩 Alerta recebido!")
+    print(request.data)
+    return "OK", 200
+
 
 @app.route('/', methods=['GET'])
 def home():
